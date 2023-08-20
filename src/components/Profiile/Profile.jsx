@@ -1,3 +1,11 @@
+import {
+  ProfileWrapper,
+  ProfileList,
+  ListItem,
+  InnerWrapper,
+  AdditionalInfo,
+} from './Profile.style';
+
 export const Profile = ({
   userInfo: {
     username,
@@ -8,28 +16,28 @@ export const Profile = ({
   },
 }) => {
   return (
-    <div className="profile">
-      <div className="description">
-        <img src={avatar} alt="User avatar" className="avatar" />
+    <ProfileWrapper className="profile">
+      <InnerWrapper className="description">
+        <img src={avatar} alt="User avatar" className="avatar" width={142} />
         <p className="name">{username}</p>
-        <p className="tag">@{tag}</p>
-        <p className="location">{location}</p>
-      </div>
+        <AdditionalInfo className="tag">@{tag}</AdditionalInfo>
+        <AdditionalInfo className="location">{location}</AdditionalInfo>
+      </InnerWrapper>
 
-      <ul className="stats">
-        <li>
+      <ProfileList className="stats">
+        <ListItem>
           <span className="label">Followers</span>
           <span className="quantity">{followers}</span>
-        </li>
-        <li>
+        </ListItem>
+        <ListItem>
           <span className="label">Views</span>
           <span className="quantity">{views}</span>
-        </li>
-        <li>
+        </ListItem>
+        <ListItem>
           <span className="label">Likes</span>
           <span className="quantity">{likes}</span>
-        </li>
-      </ul>
-    </div>
+        </ListItem>
+      </ProfileList>
+    </ProfileWrapper>
   );
 };
