@@ -1,27 +1,28 @@
+import { Table, Header, Body } from './TransactionHistory.style';
 export const TransactionHistory = ({ transactions }) => {
   return (
-    <table className="transaction-history">
-      <thead>
+    <Table className="transaction-history">
+      <Header>
         <tr>
           <th>Type</th>
           <th>Amount</th>
           <th>Currency</th>
         </tr>
-      </thead>
+      </Header>
 
-      <tbody>
+      <Body>
         {transactions.map(({ id, type, amount, currency }) => {
           return (
             <>
               <tr key={id}>
-                <td>{type}</td>
+                <td>{type[0].toUpperCase() + type.slice(1)}</td>
                 <td>{amount}</td>
                 <td>{currency}</td>
               </tr>
             </>
           );
         })}
-      </tbody>
-    </table>
+      </Body>
+    </Table>
   );
 };

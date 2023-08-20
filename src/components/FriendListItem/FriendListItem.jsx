@@ -1,9 +1,10 @@
+import { ListItem, Status } from './FriendListItem.style';
 export const FriendListItem = ({ avatar, name, isOnline, id }) => {
   return (
-    <li className="item" key={id}>
-      <span className="status"></span>
+    <ListItem className="item" key={id}>
+      <Status className="status" status={isOnline.toString()}></Status>
       <img className="avatar" src={avatar} alt="User avatar" width="48" />
       <p className="name">{name}</p>
-    </li>
+    </ListItem>
   );
 };
